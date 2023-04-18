@@ -3,4 +3,4 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 
 [wordpress]
-Server1 ansible_ssh_host=18.118.103.153 ansible_ssh_port=22 ansible_user=ubuntu
+Server1 ansible_ssh_host= ansible_ssh_port=22 ansible_user=ubuntu
