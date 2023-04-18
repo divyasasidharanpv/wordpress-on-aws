@@ -5,14 +5,14 @@
     db_user: wordpress
     db_password: secret
     root_password: rootsecret
-    wp_version: "5.8.1"
+    wp_version: "6.2"
     db_host: localhost
   tasks:
     - name: Update apt cache
       apt:
         update_cache: yes
 
-    - name: Install LAMP packages
+    - name: Install LAMP packages, zip and awscli
       apt:
         name:
           - apache2
@@ -22,6 +22,8 @@
           - libapache2-mod-php
           - php-cli
           - python3-pip
+          - zip
+          - awscli
 
     - name: Install PyMySQL module
       pip:
@@ -72,6 +74,13 @@
         password: "{{ db_password }}"
         priv: "{{ db_name }}.*:ALL"
         state: present
+    - name: Grant PROCESS privilege to WordPress database user
+      mysql_user:
+        name: "{{ db_user }}"
+        password: "{{ db_password }}"
+        priv: "*.*:PROCESS"
+        append_privs: yes
+        state: present
 
     - name: Download WordPress
       get_url:
@@ -102,4 +111,3 @@
         mode: 0755
         recurse: yes
 
-        
