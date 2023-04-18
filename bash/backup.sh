@@ -26,7 +26,7 @@ mysql -h$RDSHOST -u$RDSUSER -p$RDSPASS $RDSDB < /tmp/db.sql
 
 # Add cron job if it doesn't already exist
 if ! crontab -l | grep -q "/home/ubuntu/backup.sh"; then
-  (crontab -l ; echo "0 20 * * * /home/ubuntu/backup.sh") | crontab -
+  (crontab -l ; echo "30 14 * * * /home/ubuntu/backup.sh") | crontab -
 fi
 
 # Clean up
