@@ -1,6 +1,6 @@
 
 resource "aws_db_subnet_group" "group" {
-  name       = "dsasi-db-subnet-group"
+  name       = "wp-db-subnet-group"
   subnet_ids = data.aws_subnet_ids.default.ids
   }
   
@@ -25,6 +25,7 @@ resource "aws_db_subnet_group" "group" {
   db_subnet_group_name   = aws_db_subnet_group.group.name
   subnet_ids             = data.aws_subnet_ids.default.ids
   vpc_security_group_ids = [data.aws_security_group.default.id]
+  skip_final_snapshot = true
 
   tags = {
     Terraform   = "true"
