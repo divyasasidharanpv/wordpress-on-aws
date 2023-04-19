@@ -11,3 +11,5 @@ c) Create an AWS RDS MySQL Instance (Freetier) for backup of Wordpress db period
 
 3) Write a simple bash script to backup the Wordpress files to the s3 bucket & its database to the MySQL
 in AWS RDS every day at 8 PM IST. No need to setup any MySQL Master slave replicaƟon.
+
+Documentation link: https://docs.google.com/document/d/181vjosS1tQoz8akPry9ZSoZlo1rYCvSRChjG_dvXuAQ/edit?usp=sharing
